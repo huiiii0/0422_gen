@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gem</title>
+    
+
+    <style>
+        * {margin:0; padding:0; box-sizing: border-box;}
+        ul,ol,li {list-style:none;}
+        /*헤더*/
+        header {width:100%; height:85px; z-index: 1; position: fixed; background-color:rgba(5, 5, 5, 0.4)}
+        #hwrap {width:1260px; height:80px; margin:0 auto;}
+        #hwrap > #logo {width:200px; height:70px; float:left; margin:10px 0 0 0px;}
+        #hwrap > #logo > img {width:100%; height:100%;}
+        #hwrap > nav {width:790px; height:60%; float:right; margin:20px 100px 0 0px;}
+        nav > ul {font-size:17px;}
+        nav > ul > li {float:left; margin:10px 28px;}        
+        nav > ul > li > a {text-decoration: none; color:#fff;}
+        nav > ul > li > a:hover {color:blueviolet; transition:all 0.25s;}
+
+        /*사이드바*/
+        #sidebar {width:70px; height:300px; position:fixed; z-index:5; margin:300px 1832px;}
+        #sidebar > ul {background-color:none; float:left;}
+        #sidebar > ul > li {border:2px solid #fff; margin:30px 10px 10px 30px; width:10px; height:10px; border-radius:50%;}
+        #sidebar > ul > li:hover {width:18px; height:18px; background-color:#fff; border-radius:50%; margin:30px 30px 30px 26px; cursor:pointer;}
+        
+        /*섹션1*/
+        .sec1 {width:100%; height:1000px; position:relative; background-size:cover;}        
+        .sec1 >img {width:100%; height:100%; position:absolute;}
+        #sec1box {width:1260px; height:100%; margin:0 auto;}
+        .secbox1 {position:absolute; width:1500px; height:600px; margin:200px 0 0 0px;}
+        .secbox1 > .textbox1 {width:600px; height:600px;}
+        .textbox1 > h1 {color:#fff; padding:10px; font-size:70px;}
+        .textbox1 > span {color:#fff; padding:20px;}
+
+        .secbox1 > .textbox1 > button {background-color:rgba(0,0,0,0); color:#fff; border:2px solid #fff; width:300px; height:50px; margin:30px 0 0 20px; font-size:20px; font-weight:bold;}
+        .secbox1 > .textbox1 > button:hover {border:0; background-color:#fff; color:blueviolet; transition:all 0.5s;}
+              
+        .textbox2 {width:600px; height:600px; margin:-508px 0 0 638px;;}
+        .time {width:200px; height:150px; margin:1px; float:left;}
+        .time:first-of-type {border-right: 2px solid #fff; border-bottom: 2px solid #fff;}
+        .time:first-of-type > span {margin:0 0 0 100px; color:#fff;}
+        .time:first-of-type:before {content: "Days"; display:block; margin:30px 0 0 70px; color:#fff;}
+        
+        .time:nth-of-type(2) {border-left: 2px solid #fff; border-bottom: 2px solid #fff;}
+        .time:nth-of-type(2) > span {margin:0 0 0 100px; color:#fff;}
+        .time:nth-of-type(2):before {content: "Hour"; display:block; margin:30px 0 0 70px; color:#fff;}
+
+        .time:nth-of-type(3) {border-top: 2px solid #fff; border-right: 2px solid #fff;}
+        .time:nth-of-type(3) > span {margin:0 0 0 100px; color:#fff;}
+        .time:nth-of-type(3):before {content: "Min"; display:block; margin:30px 0 0 70px; color:#fff;}
+
+        .time:nth-of-type(4) {border-top: 2px solid #fff; border-left: 2px solid #fff;}
+        .time:nth-of-type(4) > span {margin:0 0 0 100px; color:#fff;}
+        .time:nth-of-type(4):before {content: "Sec"; display:block; margin:30px 0 0 70px; color:#fff;}
+        
+        
+        
+        /*섹션2*/
+        .sec2 {width:100%; height:1000px; position: relative;}
+        .sec2 >img {width:100%; height:100%; position:absolute;}
+        #sec2box {width:1260px; height:100%; margin:0 auto}
+        .textbox3 {width:800px; height:600px;  position:absolute; margin:200px 0 0 0px;}
+        
+        .tb3 {width:800px; height:250px; margin:30px 0 30px 0; color:#fff;}
+        .tb3 h1 {font-size:60px; margin:30px 0 20px 0;}
+        .tb3 p {font-size:18px;}
+
+        .tb3 > .tb3box {width:350px; height:200px; background-color:rgba(255, 255, 255, 0.1); display:inline-block; margin:30px 30px 0 0px; color:#fff;}
+        .tb3 > .tb3box:hover { background-color:rgba(255, 255, 255, 0.464); transition:all 0.5s;}
+        .tb3 > .tb3box img {width:60px; height:70px; float:right;}
+        .tb3 > .tb3box h3 {margin:20px 0 30px 20px;}
+        .tb3 > .tb3box p {margin:0 0 0 20px;}
+
+        .textbox4 {width:300px; height:600px; position:absolute; margin:200px 0 0 840px;}
+        .tb4 {width:300px; height:150px;  margin:40px 0 20px 0; color:#fff;}
+        .tb4 h1 {font-size:60px; margin:30px 0 0 30px; color:#ff4198;}
+        .tb4 h3 {margin:45px 0 0 0;}
+        .tb4 p {font-size:20px;}
+        .tb4 > .hbox {width:145px; height:150px; float:left; margin:0 2px 0 2px;}
+
+        
+        
+
+        /*섹션3*/
+        .sec3 {width:100%; height:1000px; position: relative;}
+        .sec3 > img {width:100%; height:100%; position:absolute;}
+        #sec3box {width:1260px; height:100%; margin:0 auto;}
+        #sec3box > .hbox {width:700px; height:100px; position:absolute; margin:200px 0 0px 0px;}
+        #sec3box > .hbox h1 {font-size:80px; color:#fff;}
+
+        #sec3box > .wrapbox {width:1260px; height:500px;  position:absolute; margin:280px 0 0 0px;}
+        .wrapbox > .box {width:245px; height:360px; background-color:rgba(255,255,255,0.1); float:left; margin:60px 70px 10px 0px; text-align:center; font-weight:bold;}
+        .wrapbox > .box:hover {background-color:rgba(255, 255, 255, 0.464); transition:all 0.5s;}
+        .box > img {width:70px; height:70px; margin:0 0 30px 0;}
+        .box > h3 {color:#fff; margin:40px 0 10px 0;}
+        .box > h3:before {content: "12:00 AM - 14:00 AM"; color:blueviolet; display:block; font-size:15px; margin:0 0 10px 0;}
+        .box > span {color:#fff;}
+        .box > .artist {color:#ff4198; margin:0 0 0 10px;}
+        .readme {width:150px; height:30px; border:3px solid #ff4198; margin:100px auto;}
+        .readme:hover {background-color:#ff4198; transition:all 0.5s;}
+
+        .wrapbox > .box > button {width:130px; height:35px; background-color:rgba(0,0,0,0); border:2px solid #ff4198; color:#ff4198; font-weight:bold; margin:70px 0 0 0;}
+        .wrapbox > .box > button:hover {background-color:#ff4198; border:0; color:#fff; transition:all 0.5s;}
+        
+        
+
+
+
+        /*섹션4*/
+        .sec4 {width:100%; height:1000px; position: relative;}
+        .sec4 > img {width:100%; height:100%; position:absolute}
+        #sec4box {width:1260px; height:100%; margin:0 auto;}
+        #sec4box > .hbox {width:1200px; height:700px; position:absolute; margin:120px 0 0 0; color:#fff; text-align:center;} 
+        #sec4box > .hbox > h1 {font-size:60px; margin:190px 0 0 0;}
+        #sec4box > .hbox > img {margin:50px 0;}
+        #sec4box > .hbox > h3 {font-size:30px;}
+
+
+        /*섹션5*/
+        .sec5 {width:100%; height:1000px; margin:0 auto; position:relative;}
+        .sec5 > img {width:100%; height:100%; position:absolute;}
+        .sec5 > #sec5box {width:1200px; height:100%; margin:0 auto;}
+        #sec5box > .hbox {width:1200px; height:700px; position:absolute; margin:200px 0 0 0;}
+        #sec5box > .hbox > h1 {font-size:70px; color:#fff; margin:0 0 80px 0;}
+        #sec5box > .hbox > .box1 {width:200px; height:400px; float:left; margin:10px 15px; color:#fff; text-align:center;}
+        #sec5box > .hbox > .box1 > .tbox1 {width:200px; height:250px; background-color:#2a1744; float:left; box-shadow: 2px 2px 2px #2a1744;}
+        #sec5box > .hbox > .box1 > .tbox1 > h3 {font-size:25px;}
+        #sec5box > .hbox > .box1 > .tbox1 > h2 {font-size:50px; margin:20px 0;}
+        
+        #sec5box > .hbox > .box1 > .tbox2 {width:200px; height:100px; background-color:#ff4198; float:left;}
+        #sec5box > .hbox > .box1 > .tbox2 > button {width:100px; height:30px; background-color:#2a1744; color:#fff; font-weight:bold; border:0; margin:30px 0 0 0;}
+        #sec5box > .hbox > .box1 > .tbox2 > button:hover {background-color:#fff; color:#2a1744; transition:all 0.5s; }
+        
+        
+
+        /*섹션6*/
+        .sec6 {width:100%; height:1000px;  margin:0 auto;}
+        .sec6 > img {width:100%; height:100%;}
+
+        /*섹션7*/
+        .sec7 {width:100%; height:1000px; margin:0 auto;}
+        .sec7 > img {width:100%; height:100%;}
+       
+    </style>
+
+</head>
+
+<body>
+    
+    <header>
+        <div id="hwrap">
+            <div id="logo">
+                <img src="img/logo.png" alt="로고이미지">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><b>Home</b></a></li>
+                    <li><a href="#"><b>About</b></a></li>
+                    <li><a href="#"><b>Lineup</b></a></li>
+                    <li><a href="#"><b>Video</b></a></li>
+                    <li><a href="#"><b>Tickets</b></a></li>
+                    <li><a href="#"><b>Sponsor</b></a></li>
+                    <li><a href="#"><b>Contact</b></a></li>                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div id="sidebar">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <section class="sec1">
+        
+        <img src="img/sec1.avif" alt="이미지1">
+        <div id="sec1box">
+    <div class="secbox1">
+        <div class="textbox1">
+           <h1>LEGENDARY</h1>
+           <h1>MUSIC</h1>
+           <h1>FESTIVAL</h1>
+           <br><br>
+           <span><b>2 DAYS</b></span><span><b>38 ARTISTS</b></span><span><b>2700 PARTICIPANTS</b></span><br>
+           <button>REGISTRATION NOW</button>
+        </div>
+        <div class="textbox2">
+
+            <div class="time">
+                <span style="font-size:60px"><b>21</b></span>
+            </div>
+
+            <div class="time">
+                <span style="font-size:60px"><b>13</b></span>
+            </div>
+
+            <div class="time">
+                <span style="font-size:60px"><b>03</b></span>
+            </div>
+
+            <div class="time">
+                <span style="font-size:60px"><b>20</b></span>
+            </div>
+
+        </div>
+    </div>
+           
+            </div>
+
+            
+        </div>
+
+    </section>
+
+    <section class="sec2">
+       
+        <img src="img/sec2.avif" alt="이미지2">
+        <div id="sec2box">
+            <div class="textbox3">
+                <div class="tb3">
+                    <h1>ABOUT US</h1><br>
+                    <p>Our concert is attended by many famous singers. Lauv and Sam Smith will appear on the</p>
+                    <p>show. There are also 2,700 seats available. However, minors under the age of 19 can be</p>
+                    <p>restricted from entering, so you must bring your ID card to enter. Also, the act of bringing</p>
+                    <p>food is also not allowed, so please refer to this. Then come safely and enjoy the party.</p>
+                </div>
+                <div class="tb3">
+                    <div class="tb3box">
+                        <img src="img/mapicon.png" aly="지도아이콘">
+                        <br><br><br>
+                        <h3>WHERE</h3>
+                        <p>908 New Hampshire Avenue 20037, United States</p>
+                    </div>
+                    <div class="tb3box">
+                        <img src="img/mapicon.png" aly="지도아이콘">
+                        <br><br><br>
+                        <h3>WHEN</h3>
+                        <p>Tuesday - Friday September 08 to September 12</p>
+                    </div>
+                </div>
+            </div>
+            <div class="textbox4">
+                <div class="tb4">
+                    <div class="hbox">
+                        <h1>65</h1>
+                    </div>
+                    <div class="hbox">
+                        <h3>STANDART</h3>
+                        <p>COMPLETED</p>
+                    </div>
+                </div>
+                <div class="tb4">
+                    <div class="hbox">
+                        <h1>38</h1>
+                    </div>
+                    <div class="hbox">
+                        <h3>DANCE FLOOR</h3>
+                        <p>COMPLETED</p>
+                    </div>
+                </div>
+                <div class="tb4">
+                    <div class="hbox">
+                        <h1>95</h1>
+                    </div>
+                    <div class="hbox">
+                        <h3>VIP PLUS</h3>
+                        <p>COMPLETED</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec3">
+        <img src="img/sec3.avif" alt="이미지3">
+        <div id="sec3box">
+
+            <div class="hbox">
+                <h1>PROGRAM</h1>
+            </div>
+
+            <div class="wrapbox">
+
+                <div class="box">
+                   <img src="img/clock.webp" alt="시계아이콘">
+                   <h3>Lauvid's emotional ballad</h3>
+                   <span>Artist:</span><span class="artist">Lauv</span><br>
+                    <button>READ ME</button>
+                </div>
+
+                <div class="box">
+                    <img src="img/clock.webp" alt="시계아이콘">
+                    <h3>IN LOVE WITH LIFE</h3>
+                    <span>Artist:</span><span class="artist">Josh Jameson</span><br>
+                    <button>READ ME</button>
+                </div>
+
+                <div class="box">
+                    <img src="img/clock.webp" alt="시계아이콘">
+                    <h3>MAJOR LAZER FEAT</h3>
+                    <span>Artist:</span><span class="artist">DJ Josh Jameson</span><br>                
+                    <button>READ ME</button>
+                
+                </div>
+
+                <div class="box">
+                    <img src="img/clock.webp" alt="시계아이콘">
+                    <h3>Lauvid's emotional ballad</h3>
+                    <span>Artist:</span><span class="artist">Lauv</span><br>               
+                    <button>READ ME</button>
+                    
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    
+    <section class="sec4">
+        <img src="img/sec4.avif" alt="이미지4">
+        <div id="sec4box">
+            <div class="hbox">
+                <h1>VIDEO FROM THE FESTIVAL 2020</h1>
+            <img src="img/play.webp" alt="재생버튼">
+            <h3>PERFORMANCE OF A MUSICAL GROUP</h3>
+            </div>
+        </div>
+    </section>
+    
+    <section class="sec5">
+        <img src="img/sec5.jpg" alt="이미지5">
+        <div id="sec5box">
+            <div class="hbox">
+                <h1>TICKETS</h1>
+                <div class="box1">
+                    <div class="tbox1">
+                        <h3>STANDART</h3>
+                        <h2>$80</h2>
+                        <br>
+                        <span>You can enjoy alcoholic beverages and food at the open table for general attendance.</span>
+                    </div>
+                    <div class="tbox2">
+                        <button>GET TICKETS</button>
+                    </div>
+                </div>
+                <div class="box1">
+                    <div class="tbox1">
+                        <h3>DANCE FLOOR</h3>
+                        <h2>$120</h2>
+                        <br>
+                        <span>The dance pool has room for everyone to dance together, so you can enjoy it to your heart's content.</span>
+                    </div>
+                    <div class="tbox2">
+                        <button>GET TICKETS</button>
+                    </div>
+                </div>
+                <div class="box1">
+                    <div class="tbox1">
+                        <h3>VIP PLUS</h3>
+                        <h2>$250</h2>
+                        <br>
+                        <span>We offer VIP rooms and have more comfortable seats.</span>
+                    </div>
+                    <div class="tbox2">
+                        <button>GET TICKETS</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="sec6">
+        <img src="img/sec6.avif" alt="이미지6">
+    </section>
+
+    <section class="sec7">
+        <img src="img/sec7.avif" alt="이미지7">
+    </section>
+
+
+
+
+
+
+</body>
+
+</html>
